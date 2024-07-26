@@ -3,6 +3,8 @@
 Summary:
 In this project, you will create a logical database model and data dictionary: entities (objects), their attributes, and a class diagram.
 
+💡 [Tap here](https://new.oprosso.net/p/4cb31ec3f47a4596bc758ea1861fb624) **to leave your feedback on the project**. It's anonymous and will help our team make your educational experience better. We recommend completing the survey immediately after the project.
+
 ## Contents
 
 1. [Chapter I](#chapter-i) \
@@ -396,5 +398,3 @@ For task 1 describe Discounts for Client, Notification to Client entities.
 ### Exercise 06 — Updating the Class Diagram <div id="47"></div>
 
 For Task 1, add the Discounts for Client, Notification to Client entities to the class diagram.
-
-💡 [Tap here](https://forms.yandex.ru/cloud/65b909c1c769f108a56526f3/) **to leave your feedback on the project**. Product Team really tries to make your educational experience better.
