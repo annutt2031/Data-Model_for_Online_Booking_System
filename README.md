@@ -82,7 +82,7 @@ System entities
 
 ### 2. References <div id="22"></div>
 
-   Usually, we first consider those entities that carry a semantic load, describe objects. That is, entities, actions on which provide the desired result of business processes. There are also references that describe the data used to fill other entities. So, in our example, we do not specify the name of the service or the name of the master completely in the entities "Slot for service" and "Service booking", but we specify external keys - identifiers of the entity "Services" and the entity "Employee". And by the external key we programmatically retrieve the service name and the full name. This method is used both when the user enters data in the form on the screen and when it is processed in the system.
+   Usually, we first consider those entities that carry a semantic load, describe objects. That is, entities, actions on which provide the desired result of business processes. There are also references that describe the data used to fill other entities. So, in our example, we do not specify the name of the service or the name of the master completely in the entities "Slot for service" and "Service booking", but we specify external keys — identifiers of the entity "Services" and the entity "Employee". And by the external key we programmatically retrieve the service name and the full name. This method is used both when the user enters data in the form on the screen and when it is processed in the system.
    The implementation of entities that carry semantic load requires already developed references. Therefore, it makes sense to develop (and describe) references before the main semantic entities. Sometimes other references are needed to implement and use certain references. For example, the Master Services entity uses the Employees and Services references. Therefore, you should start with those that do not use other entities, but on the contrary, are used by other entities.
 
 ### 3. Object Description <div id="23"></div>
@@ -294,12 +294,12 @@ For task 1, describe the Persona class:
 2. Define attributes (as a minimum):
    1) identifier of the Persona;
    2) registration data for access to the system (login, password);
-   3) name, (patronymic) - for addresses;
-   4) phone number - for sending sms and calls;
+   3) name, (patronymic) — for addresses;
+   4) phone number — for sending sms and calls;
    5) date of registration.
 3. Specify for attributes:
    1) name,
-   2) key (primary, external - if any),
+   2) key (primary, external — if any),
    3) data type,
    4) length limitation for text data,
    5) whether it is required or not,
@@ -317,14 +317,14 @@ For task 1, describe the entities Clients, Employees, for each entity:
    3) the date of the record.
 3. For attributes, specify:
    1) name,
-   2) key (primary, external - if any),
+   2) key (primary, external — if any),
    3) data type,
-   4) for text data - length limitation,
+   4) for text data — length limitation,
    5) whether it is required or not,
    6) default value,
    7) comments.
 
-### Exercise 02 - Description of Reference Entities <div id="43"></div>
+### Exercise 02 — Description of Reference Entities <div id="43"></div>
 
 For Task 1, describe the reference entities that will provide the implementation of UC01, UC02, UC03:
 
@@ -338,15 +338,15 @@ For each entity, describe:
 2. Define the attributes of the entity:
    1) Employee Roles:
       1) record identifier,
-      2) employee - identifier of the entity Employees,
+      2) employee — identifier of the entity Employees,
       3) role (list of values: master, manager).
    2) Services:
       1) record identifier,
       2) name of the service.
    3) master services:
       1) record identifier,
-      2) employee identifier - foreign key to the Employees entity,
-      3) service identifier - foreign key to the Services entity.
+      2) employee identifier — foreign key to the Employees entity,
+      3) service identifier — foreign key to the Services entity.
 3. Specify for attributes:
    1) name,
    2) data type,
@@ -355,7 +355,7 @@ For each entity, describe:
    5) default value/empty value,
    6) comments.
 
-### Exercise 03 - Description of the Service Slots Entity <div id="44"></div>
+### Exercise 03 — Description of the Service Slots Entity <div id="44"></div>
 
 For Task 1, describe the essence of Service Slots:
 
@@ -380,9 +380,9 @@ For Task 1, create a class diagram in UML notation.
 
 1. Place in the diagram the classes specified in Ex. 00 to Ex.03.
 2. Specify the classes in UML notation:
-   1) name - at the top, bold, the first letter is capitalized;
-   2) attributes - in the middle part, left-aligned, the first letter is capitalized;
-   3) methods - not specified.
+   1) name — at the top, bold, the first letter is capitalized;
+   2) attributes — in the middle part, left-aligned, the first letter is capitalized;
+   3) methods — not specified.
 3. Specify primary and foreign keys.
 4. Identify relationships between classes, describe with semantic words.
 5. Specify cardinality on the relationships: 1:1, 1:\*, \*:1.
