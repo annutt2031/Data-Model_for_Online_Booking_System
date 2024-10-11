@@ -36,13 +36,13 @@ In this project, you will create a logical database model and data dictionary: e
 
 User stories describe the user's view of the system's behavior, and use cases describe the user's interaction with the system. But US and UC do not contain all the information needed to implement the system. 
 
-Programmers do not develop user or business requirements, but entities in the system, their properties and behavior, i.e. functional requirements for the system. The relationship to other entities is usually shown by an Entity-Relationship Diagram (ER diagram or class diagram) in the notation adopted by the team.
+Programmers do not develop user or business requirements, but entities in the system, their properties and behavior, i.e. functional requirements for the system. The relationship to other entities is usually represented by an Entity-Relationship Diagram (ER diagram or class diagram) in the notation adopted by the team.
 
-On BSA03, you identified the main entities of the domain and built a conceptual model (ER diagram). Continue this work by constructing a logical database (DB) model: a description of the entities and an ER diagram or class diagram.
+In BSA03, you identified the main entities of the domain and built a conceptual model (ER diagram). Continue this work by constructing a logical database (DB) model: a description of the entities and an ER diagram or class diagram.
 
 In this project, you will learn how to describe objects, their structure, and the relationships between them, and how to construct a class diagram. 
 
-Before you begin modeling the database structure and designing the objects and functionality of the system, refresh your knowledge of the relational database. You can do this with the help of any book that describes SQL, in many courses or training programs, SQL tutorials on the Internet. For a brief description, see the article [Introduction to Databases] (https://habr.com/ru/post/686816/) listed in the Literature section.
+Before you start modeling the database structure and designing the objects and functionality of the system, you should brush up on your knowledge of relational databases. You can do this using any book that describes SQL, many courses or training programs, or SQL tutorials on the Internet. For a brief description, see the article [Introduction to Databases](https://habr.com/ru/post/686816/) listed in the Literature section.
 
 **Literature:**
 
@@ -56,7 +56,7 @@ Before you begin modeling the database structure and designing the objects and f
 
 ### General Rules <div id="21"></div>
 
-1. Along the way, you may feel a sense of uncertainty and a severe lack of information: that's OK. Remember, the information in the repository and on Google is always with you. So are your peers and Slack. Communicate. Search. Use common sense. Don't be afraid to make mistakes.
+1. Along the way, you may feel a sense of uncertainty and a severe lack of information: that's OK. Remember, the information in the repository and on Google is always with you. So are your peers and Rocket.Chat. Communicate. Search. Use common sense. Don't be afraid to make mistakes.
 2. Pay attention to sources of information. Check. Think. Analyse. Compare. 
 3. Look at the text of each assignment. Read it several times. 
 4. Read the examples carefully. There may be something in them that is not explicitly stated in the task itself.
@@ -78,26 +78,28 @@ System entities
 ### 1. A little Bit about the Life Cycle of An Entity <div id="21"></div>
 
    Actions specified in the US and/or UC or in the business process description are actions on a specific entity entry by users in a specific role.
-   To make it easier to track and provide actions on an entity when certain conditions are met, the concept of "entity lifecycle" is used. This is a series of states (statuses) that an instance of an entity goes through under the influence of actions or under certain conditions. To track the status, you add the attribute "Status" to the entity, which defines the state of a particular instance of the entity. You will examine this parameter in detail in the next project, while in this project,you will add the attribute to the entity structure,when describing entity attributes. 
+
+   To make it easier to track and provide actions on an entity when certain conditions are met, the concept of "entity lifecycle" is used. This is a series of states (statuses) that an instance of an entity goes through under the influence of actions or under certain conditions. To track the status, you add the attribute "Status" to the entity, which defines the state of a particular instance of the entity. You will examine this parameter in detail in the next project, while in this project you will add the attribute to the entity structure when describing entity attributes. 
 
 ### 2. References <div id="22"></div>
 
-   Usually, we first consider those entities that carry a semantic load, describe objects. That is, entities, actions on which provide the desired result of business processes. There are also references that describe the data used to fill other entities. So, in our example, we do not specify the name of the service or the name of the master completely in the entities "Slot for service" and "Service booking", but we specify external keys — identifiers of the entity "Services" and the entity "Employee". And by the external key we programmatically retrieve the service name and the full name. This method is used both when the user enters data in the form on the screen and when it is processed in the system.
+   Usually, we first consider those entities that carry a semantic load, describe objects. That is, entities, actions on which provide the desired result of business processes. There are also references that describe the data used to fill other entities. So, in our example, we do not specify the name of the service or the name of the master completely in the entities "Slot for service" and "Service booking", but we specify external keys — identifiers of the entity "Services" and the entity "Employee". And by the external key we programmatically retrieve the service name and the full name. This method is used both when the user enters data into the form on the screen and when it is processed in the system.
+
    The implementation of entities that carry semantic load requires already developed references. Therefore, it makes sense to develop (and describe) references before the main semantic entities. Sometimes other references are needed to implement and use certain references. For example, the Master Services entity uses the Employees and Services references. Therefore, you should start with those that do not use other entities, but on the contrary, are used by other entities.
 
 ### 3. Object Description <div id="23"></div>
 
-The description of the object must contain:
+The description of the object must include:
 
 1. Purpose;
 2. Attributes, their description;
-3. Relationship of the object with other objects in the system (ER-diagram or class diagram);
+3. Relationship of the object to other objects in the system (ER diagram or class diagram);
 4. Actions (operations) on object instances;
-5. Roles and access rights of these roles (who has the right to perform what actions); 
-6. Life cycle of an object instance (statuses (state) of the instance, conditions for changing the status);
+5. Roles and access rights of these roles (who has the right to perform which actions); 
+6. Life cycle of an object instance (states of the instance, conditions for changing the state);
 7. Visualization of object instances (user interfaces);
 8. Interchange interfaces (integration);
-9. Reports, monitoring, other.
+9. Reporting, monitoring, other.
 
 ### 4. Purpose of the Object <div id="24"></div>
 
@@ -105,19 +107,19 @@ Here you should briefly (one or two or three sentences) describe the purpose of 
 
 It should be understood that sometimes an object can act as a creating entity (output document) in one business process and as a reference in another. 
 
-Example: Master Services
+For example: Master Services
 
-The object shows what services a particular master performs. The manager in the system creates records indicating what services are provided by this or that master. The client selects records (instances) of the object to book the service. 
+The object represents the services provided by a particular master. The manager in the system creates records that indicate what services are provided by this or that master. The client selects records (instances) of the object to book the service. 
 
 ### 5. Object Attributes <div id="25"></div>
 
-In BSA03, you specified the basic attributes of the entities. For example, in Task 1 the entity "Master Schedule" is defined. Each of its instances (entity records) has specific properties (attributes): date, time, master.
+In BSA03, you specified the basic attributes of the entities. For example, in Task 1, the entity "Master Schedule" is defined. Each of its instances (entity records) has specific properties (attributes): date, time, master.
 
-An entity consists of attributes and can contain blocks of attributes. An attribute of an entity is a field (prop) that contains a specific property of the entity. For example, the Employee entity contains the following attributes (fields, props): Last Name, First Name, Patronymic, Current Position. This entity may also contain a block of attributes that describe the history of changes in the employee's position. Analysts determine which attributes are included in the entity based on the task. And, of course, the composition of attributes may change during team discussions. 
+An entity consists of attributes and can contain blocks of attributes. An attribute of an entity is a field (prop) that contains a specific property of the entity. For example, the Employee entity contains the following attributes (fields, props): Last Name, First Name, Patronymic, Current Position. This entity may also contain a block of attributes that describe the history of changes in the employee's position. Analysts determine which attributes are included in the entity based on the task. And, of course, the composition of the attributes may change during team discussions. 
 
 To describe each attribute, you should specify:
 
-- mnemonics (the name by which the entity is identified in the software); 
+- mnemonic (the name by which the entity is identified in the software);
 - name of the attribute (in Russian);
 - short description (if the name is not enough);
 - attribute type;
@@ -126,27 +128,27 @@ To describe each attribute, you should specify:
 - expected length (if the attribute is textual);
 - comments (explanations, conditions).
 
-Mnemonics are often defined by developers according to the rules of a particular programming language. It should be understood that this is the most stable identifier of an entity. Any other attribute, even the name, can change in the process of task development.
+Mnemonics are often defined by developers according to the rules of a particular programming language. It should be understood that this is the most stable identifier of an entity. Any other attribute, even the name, may change in the course of task development.
 
-Don't add attributes "just in case" if you are in doubt and not sure if that the attribute is really needed.
+Don't add attributes "just in case" if you have doubts and are not sure that the attribute is really needed.
 
-If an entity (object) consists of several blocks, the multiplicity and mandatory nature of the block should be specified when describing the blocks. When building an ER diagram, blocks are specified as separate classes (objects) related to the original one.
+If an entity (object) consists of several blocks, the multiplicity and mandatory nature of the block should be specified when describing the blocks. When creating an ER diagram, blocks are specified as separate classes (objects) related to the original one.
 
 ### 6. Class Diagram <div id="26"></div>
 
-Class diagram [(https://ru.wikipedia.org/wiki/%D0%90%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9_%D1%8F%D0%B7%D1%8B%D0%BA) is a structure diagram of the  [UML](https://ru.wikipedia.org/wiki/UML), that shows the general structure of the hierarchy of system classes, their cooperations, attributes (fields), methods, interfaces and relationships between them.
+Class diagram [(https://ru.wikipedia.org/wiki/%D0%90%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9_%D1%8F%D0%B7%D1%8B%D0%BA) is a structural diagram of the [UML](https://ru.wikipedia.org/wiki/UML) that shows the general structure of the hierarchy of system classes, their interactions, attributes (fields), methods, interfaces, and relationships between them.
 
-Widely used not only for documentation and visualization, but also for construction via forward or reverse engineering.
+It is widely used not only for documentation and visualization, but also for construction via forward or reverse engineering.
 
 ### 7. The Сoncept of Сlass Identification <div id="27"></div>
 
-1. Identify not specific entities of the physical world, but classes, a generalization of entities. Entities = classes.
-2. Identifying entities: identify noun-verb pairs from task descriptions, use cases, requirements, interviews, reports, user stories and interfaces. All nouns are potential entities or their attributes. Verbs and verb groups are operations that can be performed by or on entities.
+1. Identify not specific entities of the physical world, but classes, a generalization of entities. Entities = Classes.
+2. Identify entities: identify noun-verb pairs from task descriptions, use cases, requirements, interviews, reports, user stories, and interfaces. All nouns are potential entities or their attributes. Verbs and verb groups are operations that can be performed by or on entities.
 3. Principle: Do not create unnecessary entities. Model those aspects of the system that are contained in the requirements.
 
-The class diagram consists of three sections:
+The class diagram has three sections:
 
-- Top: the name of the class. It is centered and printed in bold. The first letter is capital.
+- Top: the name of the class. It is centered and bold. The first letter is capitalized.
 - Middle: fields (attributes) of the class. They are left-aligned and the first letter is lowercase.
 - Bottom: methods of the class. They are also left-aligned and the first letter is lowercase.
 
@@ -156,14 +158,13 @@ The class diagram consists of three sections:
 
 ### Task 1. Haircut Appointment <div id="31"></div>
 
-The management of the barbershop chain decided to implement a system that would allow online booking of appointments. The main goal is to develop the business by expanding the customer base through the possibility of online registration, as well as to reduce the cost of employee labor and manual labor by automatically informing customers through communication channels.  
+The management of the barbershop chain decided to implement a system that would allow online booking of appointments. The main goal is to develop the business by expanding the client base through the possibility of online registration, as well as to reduce the cost of employee labor and manual labor by automatically informing clients through communication channels.  
 
-Both registered and unregistered visitors can book an appointment on the website. When making an appointment, you can select the type of service: hairdressing or cosmetology, as well as the service itself, the master and the time from the available intervals. The system should provide automatic sending of reminders to clients through the communication channel chosen by the client (Telegram, WhatsApp, VK, sms) according to the schedule set by the manager. After receiving a service, the system offers the client to evaluate the service and write suggestions on how to improve the work.
+Both registered and unregistered visitors can book an appointment on the website. When making an appointment, you can select the type of service: hairdressing or cosmetology, as well as the service itself, the master and the time from the available intervals. The system should provide automatic sending of reminders to clients through the communication channel chosen by the client (Telegram, WhatsApp, VK, SMS) according to the schedule set by the manager. After receiving a service, the system offers the client to evaluate the service and write suggestions on how to improve the work.
 
-The schedule of masters and the services provided by each master should be entered by the manager, who may be more than one person. This person is also responsible for keeping the schedule up to date and adjusting it if necessary, communicating with clients manually, marking the service, charging and accepting payment, sending payment data to the accounting department. The manager can also receive reports on completed services and view customer feedback.
+The schedule of masters and the services provided by each master should be entered by the manager, who may be more than one person. This person is also responsible for keeping the schedule up to date and adjusting it if necessary, communicating with clients manually, marking the service, charging and accepting payment, sending payment data to the accounting department. The manager can also receive reports on completed services and view client feedback.
 
 Each master has the possibility to view the schedule and appointment for his services, client reviews.
-
 
 **Terms**
 
@@ -187,7 +188,7 @@ Each master has the possibility to view the schedule and appointment for his ser
 2. The client enters the phone number and name (patronymic).
 3. The system confirms that the phone is not registered in the system.
 4. The client enters the preferred password.
-5. The system informs the password level (weak, medium, high).
+5. The system announces the password level (weak, medium, high).
 6. The system registers the client, sends SMS to the client about registration with name and login.
 
 **Alternative scenario:**
@@ -288,7 +289,7 @@ Each master has the possibility to view the schedule and appointment for his ser
 
 ### Exercise 00 — Persona Class Description <div id="41"></div>
 
-For task 1, describe the Persona class: 
+For Task 1, describe the Persona class: 
 
 1. Specify the purpose of the Persona class based on the task description and UCs;
 2. Define attributes (as a minimum):
@@ -308,7 +309,7 @@ For task 1, describe the Persona class:
 
 ### Exercise 01 — Description of Clients and Employees Entities <div id="42"></div>
 
-For task 1, describe the entities Clients, Employees, for each entity:
+For Task 1, describe the entities Clients, Employees, for each entity:
 
 1. Specify the purpose of the entities according to the application in UC and the description in the task.
 2. Define the attributes (as a minimum):
@@ -389,7 +390,7 @@ For Task 1, create a class diagram in UML notation.
 
 ### Exercise 05 — Description of Discounts for Client, Notification to Client Entities <div id="46"></div>
 
-For task 1 describe Discounts for Client, Notification to Client entities.
+For Task 1, describe Discounts for Client, Notification to Client entities.
 
 1. Specify the purpose.
 2. Identify the attributes.
