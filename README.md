@@ -28,6 +28,17 @@ In this project, you will create a logical database model and data dictionary: e
    4.6. [Exercise 05 — Description of Discounts for Client, Notification to Client Entities](#46) \
    4.7. [Exercise 06 — Updating the Class Diagram](#47)
 
+## Instructions 
+
+How to learn at “School 21”:
+
+- Here, you’ll find a unique learning experience with a lot of freedom. You’re given a task and left to find your own way to solve it, using whatever resources work best for you — whether that’s the Internet or AI tools like GigaChat. Just be mindful of information quality: verify, think critically, analyze, and compare.
+- Peer-to-peer (P2P) learning is the exchange of knowledge and experience with peers, where everyone acts as both mentor and student. This approach allows you to gain a deeper understanding of the material by learning from one another.
+- Feel free to ask for help: around you are peers who are also navigating this path for the first time. Share your own experience and ideas with others.  Join Rocket.Chat to stay updated with the latest community announcements. 
+- Your learning is meaningless if you just copy someone else’s solutions. When receiving help from others, always make sure you fully understand the “why”, “how”, and “purpose” behind the solution. Don’t be afraid to make mistakes. 
+- Does the task seem impossible? Take a break, get some fresh air and clear your mind — this has helped many people. Maybe after that, the solution will come to you naturally.
+- The learning process is just as important as the result. It’s not just about completing the task — it’s about understanding HOW to solve it.
+
 ## Chapter I <div id="chapter-i"></div>
 
 ![Illustration](misc/images/IMG_1719.jpg)
@@ -56,6 +67,8 @@ Before you start modeling the database structure and designing the objects and f
 
 ### General Rules <div id="21"></div>
 
+Before starting, clone the project from GitLab into a repository with the same name.
+
 1. Along the way, you may feel a sense of uncertainty and a severe lack of information: that's OK. Remember, the information in the repository and on Google is always with you. So are your peers and Rocket.Chat. Communicate. Search. Use common sense. Don't be afraid to make mistakes.
 2. Pay attention to sources of information. Check. Think. Analyse. Compare. 
 3. Look at the text of each assignment. Read it several times. 
@@ -66,7 +79,7 @@ Before you start modeling the database structure and designing the objects and f
 8. Don't try to fool the system or the people around you. You will fool yourself first.
 9. Got a question? Ask your neighbour to the right. If that doesn't help, ask your neighbour on the left.
 10. When you use help, you should always understand why and how. Otherwise the help is useless.
-11. Always push only to the develop branch! The master branch will be ignored. Work in the src directory.
+11. Always push only to the develop _branch_! The master branch will be ignored. Work in the _src_ directory.
 12. There should be no files in your directory other than those specified in the tasks.
 
 ## Chapter III <div id="chapter-iii"></div>
